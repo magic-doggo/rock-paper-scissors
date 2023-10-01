@@ -33,7 +33,7 @@ function playRPS (playerSelection, computerSelection){
     }
     else {
       console.log("You Lose! Scissors beat paper")
-      return pcscore += 1;
+      return pcScore += 1;
     }
   }
   else if (playerSelection.toLowerCase() == "scissors"){
@@ -55,7 +55,8 @@ function playRPS (playerSelection, computerSelection){
 }
   
 
-const playerSelection = "Scissors";
+// const playerSelection = "Scissors";
+const playerSelection = prompt();
 const computerSelection = getComputerChoice();
 // console.log(playRPS(playerSelection, computerSelection));
 // console.log(playerSelection)
@@ -72,9 +73,12 @@ function game(){
 }
 console.log(game(pcScore, playerScore))
 
-if (playerScore > pcScore){
+if (playerScore >= pcScore){
   console.log("Player won!");
 }
-else{
-  console.log("PC won");
+else if (pcScore >= playerScore){
+  console.log("PC won!");
+}
+else {
+  console.log("Draw!");
 }
