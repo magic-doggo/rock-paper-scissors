@@ -4,39 +4,49 @@ function getComputerChoice(){
   return choice;
 }
 
+let pcScore = 0
+let playerScore = 0
 
 function playRPS (playerSelection, computerSelection){
   if (playerSelection.toLowerCase() == "rock"){
     if (computerSelection =="rock") {
-      return "Rock Draw";
+      console.log("Rock Draw");
+      return;
     }
     else if (computerSelection == "paper") {
-      return "You Lose! Paper beats Rock";
+      console.log("You Lose! Paper beats Rock");
+      return pcScore += 1;
     }
     else {
-      return "You Win! Rock beats Scissors";
+      console.log("You Win! Rock beats Scissors");
+      return playerScore += 1;
     }
   }
   else if (playerSelection.toLowerCase() == "paper"){
     if (computerSelection == "rock") {
-      return "You Win! Paper beats Rock";
+      console.log("You Win! Paper beats Rock");
+      return playerScore += 1
     }
     else if (computerSelection == "paper"){
-      return "Paper Draw";
+      console.log("Paper Draw");
+      return;
     }
     else {
-      return "You Lose! Scissors beat paper";
+      console.log("You Lose! Scissors beat paper")
+      return pcscore += 1;
     }
   }
   else if (playerSelection.toLowerCase() == "scissors"){
     if (computerSelection == "rock") {
-      return "You lose! Rock beats Scissors";
+      console.log("You lose! Rock beats Scissors");
+      return pcScore += 1;
     }
     else if (computerSelection == "paper") {
-      return "You win! Scissors beat paper";
+      console.log("You win! Scissors beat paper");
+      return playerScore +=1;
     }
     else {
-      return "Scissors draw";
+      console.log("Scissors Draw");
     }
   }
   else {
@@ -46,8 +56,18 @@ function playRPS (playerSelection, computerSelection){
   
 
 const playerSelection = "Scissors";
-
 const computerSelection = getComputerChoice();
-console.log(playRPS(playerSelection, computerSelection));
-console.log(playerSelection)
-console.log("pc " + computerSelection)
+// console.log(playRPS(playerSelection, computerSelection));
+// console.log(playerSelection)
+// console.log("pc " + computerSelection)
+//advice from odin member. write if computer choice = your choice , instead of if statement for each tie, 
+
+function game(){
+  playRPS (playerSelection, getComputerChoice())
+  playRPS (playerSelection, getComputerChoice())
+  playRPS (playerSelection, getComputerChoice())
+  playRPS (playerSelection, getComputerChoice())
+  playRPS (playerSelection, getComputerChoice())
+  return `The score is: Player:${playerScore} - PC:${pcScore}` //this function does not work, fix tommorrow
+}
+console.log(game(pcScore, playerScore))
