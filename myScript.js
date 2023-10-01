@@ -71,3 +71,10 @@ function game(){
   return `The score is: Player:${playerScore} - PC:${pcScore}` //this function does not work, fix tommorrow
 }
 console.log(game(pcScore, playerScore))
+
+if (playerScore > pcScore){
+  console.log("Player won!");
+}
+else{
+  console.log("PC won");
+}
