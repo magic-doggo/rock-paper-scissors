@@ -13,14 +13,27 @@ const paperChoice = document.querySelector("#paper")
 const scissorsChoice = document.querySelector("#scissors")
 
 rockChoice.addEventListener("click", rockClicked);
-
 function rockClicked() {
   playerSelection = "rock";
-  console.log(`player played ${playerSelection}`)
-  console.log(`computer played ${computerSelection}`)
-  game()
-  return playerSelection
+  game();
+  return;
 }
+
+paperChoice.addEventListener("click", paperClicked);
+function paperClicked() {
+  playerSelection = "paper";
+  game();
+  return;
+}
+
+scissorsChoice.addEventListener("click", scissorsClicked);
+function scissorsClicked() {
+  playerSelection = "scissors";
+  game();
+  // console.log(playRPS)
+  return;
+}
+
 
 
 function playRPS (playerSelection, computerSelection){
@@ -70,16 +83,12 @@ function playRPS (playerSelection, computerSelection){
   }
 }
   
-
-//let playerSelection; // = prompt();// will not use unless buttons will return input format
 const computerSelection = getComputerChoice();
-// console.log(playRPS(playerSelection, computerSelection));
-// console.log(playerSelection)
-// console.log("pc " + computerSelection)
 //advice from odin member. write if computer choice = your choice , instead of if statement for each tie. maybe add a "winning" else, where you contain all winning combinations with ||
 
 function game(){
   playRPS (playerSelection, getComputerChoice())
+  console.log(`The score is: Player:${playerScore} - PC:${pcScore}`)
   return `The score is: Player:${playerScore} - PC:${pcScore}` 
 }
 
@@ -96,18 +105,3 @@ else {
 // 1. create 3 buttons: rock, paper and scissors input in playerSelection
 // display the current score
 // allow up to 5 rounds. each round adds to the current score
-
-// let playerChoice = document.getElementsByClassName("button");
-
-// const rockChoice = document.querySelector("#rock");
-// const paperChoice = document.querySelector("#paper")
-// const scissorsChoice = document.querySelector("#scissors")
-
-// rockChoice.addEventListener("click", rockClicked);
-
-// function rockClicked() {
-//   let playerSelection = "rock";
-// }
-
-// console.log(game(pcScore, playerScore))
-
