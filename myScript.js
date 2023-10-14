@@ -6,6 +6,22 @@ function getComputerChoice(){
 
 let pcScore = 0
 let playerScore = 0
+let playerSelection;
+
+const rockChoice = document.querySelector("#rock");
+const paperChoice = document.querySelector("#paper")
+const scissorsChoice = document.querySelector("#scissors")
+
+rockChoice.addEventListener("click", rockClicked);
+
+function rockClicked() {
+  playerSelection = "rock";
+  console.log(`player played ${playerSelection}`)
+  console.log(`computer played ${computerSelection}`)
+  game()
+  return playerSelection
+}
+
 
 function playRPS (playerSelection, computerSelection){
   if (playerSelection.toLowerCase() == "rock"){
@@ -55,23 +71,17 @@ function playRPS (playerSelection, computerSelection){
 }
   
 
-// const playerSelection = "Scissors";
-const playerSelection = prompt();
+//let playerSelection; // = prompt();// will not use unless buttons will return input format
 const computerSelection = getComputerChoice();
 // console.log(playRPS(playerSelection, computerSelection));
 // console.log(playerSelection)
 // console.log("pc " + computerSelection)
-//advice from odin member. write if computer choice = your choice , instead of if statement for each tie, 
+//advice from odin member. write if computer choice = your choice , instead of if statement for each tie. maybe add a "winning" else, where you contain all winning combinations with ||
 
 function game(){
   playRPS (playerSelection, getComputerChoice())
-  playRPS (playerSelection, getComputerChoice())
-  playRPS (playerSelection, getComputerChoice())
-  playRPS (playerSelection, getComputerChoice())
-  playRPS (playerSelection, getComputerChoice())
-  return `The score is: Player:${playerScore} - PC:${pcScore}` //this function does not work, fix tommorrow
+  return `The score is: Player:${playerScore} - PC:${pcScore}` 
 }
-console.log(game(pcScore, playerScore))
 
 if (playerScore >= pcScore){
   console.log("Player won!");
@@ -82,3 +92,22 @@ else if (pcScore >= playerScore){
 else {
   console.log("Draw!");
 }
+
+// 1. create 3 buttons: rock, paper and scissors input in playerSelection
+// display the current score
+// allow up to 5 rounds. each round adds to the current score
+
+// let playerChoice = document.getElementsByClassName("button");
+
+// const rockChoice = document.querySelector("#rock");
+// const paperChoice = document.querySelector("#paper")
+// const scissorsChoice = document.querySelector("#scissors")
+
+// rockChoice.addEventListener("click", rockClicked);
+
+// function rockClicked() {
+//   let playerSelection = "rock";
+// }
+
+// console.log(game(pcScore, playerScore))
+
