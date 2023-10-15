@@ -30,7 +30,6 @@ scissorsChoice.addEventListener("click", scissorsClicked);
 function scissorsClicked() {
   playerSelection = "scissors";
   game();
-  // console.log(playRPS)
   return;
 }
 
@@ -40,42 +39,51 @@ function playRPS (playerSelection, computerSelection){
   if (playerSelection.toLowerCase() == "rock"){
     if (computerSelection =="rock") {
       console.log("Rock Draw");
+      roundWinner.textContent = "Rock Draw"
       return;
     }
     else if (computerSelection == "paper") {
       console.log("You Lose! Paper beats Rock");
+      roundWinner.textContent = "You Lose! Paper beats Rock"
       return pcScore += 1;
     }
     else {
       console.log("You Win! Rock beats Scissors");
+      roundWinner.textContent = "You Win! Rock beats Scissors"
       return playerScore += 1;
     }
   }
   else if (playerSelection.toLowerCase() == "paper"){
     if (computerSelection == "rock") {
       console.log("You Win! Paper beats Rock");
+      roundWinner.textContent = "You Win! Paper beats Rock"
       return playerScore += 1
     }
     else if (computerSelection == "paper"){
       console.log("Paper Draw");
+      roundWinner.textContent = "Paper Draw"
       return;
     }
     else {
       console.log("You Lose! Scissors beat paper")
+      roundWinner.textContent = "You Lose! Scissors beat paper"
       return pcScore += 1;
     }
   }
   else if (playerSelection.toLowerCase() == "scissors"){
     if (computerSelection == "rock") {
       console.log("You lose! Rock beats Scissors");
+      roundWinner.textContent = "You lose! Rock beats Scissors"
       return pcScore += 1;
     }
     else if (computerSelection == "paper") {
       console.log("You win! Scissors beat paper");
+      roundWinner.textContent = "You win! Scissors beat paper"
       return playerScore +=1;
     }
     else {
       console.log("Scissors Draw");
+      roundWinner.textContent = "Scissors Draw"
     }
   }
   else {
@@ -92,16 +100,22 @@ function game(){
   return `The score is: Player:${playerScore} - PC:${pcScore}` 
 }
 
-if (playerScore >= pcScore){
-  console.log("Player won!");
-}
-else if (pcScore >= playerScore){
-  console.log("PC won!");
-}
-else {
-  console.log("Draw!");
-}
+// if (playerScore >= pcScore){
+//   console.log("Player won!");
+// }
+// else if (pcScore >= playerScore){
+//   console.log("PC won!");
+// }
+// else {
+//   console.log("Draw!");
+// }
 
 // 1. create 3 buttons: rock, paper and scissors input in playerSelection
 // display the current score
 // allow up to 5 rounds. each round adds to the current score
+
+const currentScore = document.createElement("p")
+const roundWinner = document.createElement("p")
+const textBelow = document.querySelector("div")
+textBelow.appendChild(currentScore)
+textBelow.appendChild(roundWinner)
